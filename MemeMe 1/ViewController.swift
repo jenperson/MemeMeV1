@@ -12,16 +12,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cameraButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    /*override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        // only enables camera button if the camera is available for taking pictures
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-    }*/
+    }
 
+    // pops up camera roll to selecte photos
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -29,6 +32,7 @@ UINavigationControllerDelegate {
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    // enables user to take a photo
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -36,6 +40,7 @@ UINavigationControllerDelegate {
         presentViewController(imagePicker, animated: true, completion: nil)
     }
 
+    // sends photo user selected to image viewer and formats to fit screen
     func imagePickerController(_picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             
