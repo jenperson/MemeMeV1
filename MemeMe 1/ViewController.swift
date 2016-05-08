@@ -13,6 +13,8 @@ UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,22 @@ UINavigationControllerDelegate {
             
         dismissViewControllerAnimated(true, completion: nil)
     }
+    // Text Field Delegate Methods
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        func textFieldDidBeginEditing(textField: UITextField) {
+            textField.text = ""
+        }
+
+        // Figure out what the new text will be, if we return true
+        var newText: NSString = textField.text!
+        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+
+        // returning true gives the text field permission to change its text
+        return true;
+    }
+
     
 
 }
