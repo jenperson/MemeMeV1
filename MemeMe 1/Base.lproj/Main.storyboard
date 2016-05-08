@@ -26,6 +26,16 @@
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="e7P-Px-GdJ"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" id="qIu-eG-Klw">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xdu-m4-3zC" userLabel="cameraButton">
+                                            <rect key="frame" x="133" y="7" width="150" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Camera"/>
+                                            <connections>
+                                                <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NAa-Qy-61X"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1sX-bh-fwx">
