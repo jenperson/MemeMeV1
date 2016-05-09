@@ -18,11 +18,12 @@ UINavigationControllerDelegate {
     
     let memeDelegate = MemeTextFieldDelegate()
     
+    // sets attributes of text
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : 3.0
+        NSStrokeWidthAttributeName : -3.0,
     ]
     
     override func viewDidLoad() {
@@ -38,6 +39,8 @@ UINavigationControllerDelegate {
     override func viewWillAppear(animated: Bool) {
         // only enables camera button if the camera is available for taking pictures
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        self.subscribeToKeyboardNotifications()
     }
 
     // pops up camera roll to selecte photos
@@ -66,8 +69,45 @@ UINavigationControllerDelegate {
             
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // moves frame up when keyboard shows
+    func keyboardWillShow(notification: NSNotification) {
+        if bottomTextField.isFirstResponder() {
+                self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    // gets height of keyboard to move up frame
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as!NSValue
+        return keyboardSize.CGRectValue().height
+    }
+    
+    // moves frame back down after moving up keyboard
+    func keyboardWillHide(notification: NSNotification) {
+        if bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    // notifies when keyboard is raised
+    func subscribeToKeyboardNotifications() {
+     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+     //NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillShowNotification, object: nil)
 
-
+    }
+    
+    // turns off notification
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "keyboardWillHide:", object: nil)
+    }
+    
+    // Unsubscribe
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.unsubscribeFromKeyboardNotifications()
+    }
 
 }
 
