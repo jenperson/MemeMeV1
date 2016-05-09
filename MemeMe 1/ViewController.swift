@@ -18,6 +18,12 @@ UINavigationControllerDelegate {
     
     let memeDelegate = MemeTextFieldDelegate()
     
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : 3.0
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +31,8 @@ UINavigationControllerDelegate {
         
         self.bottomTextField.delegate = memeDelegate
         self.topTextField.delegate = memeDelegate
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
     }
     
     override func viewWillAppear(animated: Bool) {
