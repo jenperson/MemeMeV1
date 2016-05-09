@@ -16,9 +16,15 @@ UINavigationControllerDelegate {
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    let memeDelegate = MemeTextFieldDelegate()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.bottomTextField.delegate = memeDelegate
+        self.topTextField.delegate = memeDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,23 +58,10 @@ UINavigationControllerDelegate {
             
         dismissViewControllerAnimated(true, completion: nil)
     }
-    // Text Field Delegate Methods
-    
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
-        func textFieldDidBeginEditing(textField: UITextField) {
-            textField.text = ""
-        }
 
-        // Figure out what the new text will be, if we return true
-        var newText: NSString = textField.text!
-        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
 
-        // returning true gives the text field permission to change its text
-        return true;
-    }
-
-    
 
 }
+
+
 
