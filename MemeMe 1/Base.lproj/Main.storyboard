@@ -18,10 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5G3-kI-YQj">
-                                <rect key="frame" x="23" y="15" width="555" height="30"/>
+                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1sX-bh-fwx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="aOL-4v-tKF"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1G0-tK-U0H">
+                                <rect key="frame" x="239" y="456" width="122.5" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfX-hK-M8x">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -44,24 +50,17 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1G0-tK-U0H">
-                                <rect key="frame" x="239" y="456" width="122.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5G3-kI-YQj">
+                                <rect key="frame" x="265.5" y="14" width="69" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1sX-bh-fwx">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="aOL-4v-tKF"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1sX-bh-fwx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Vx-lJ-O0R"/>
-                            <constraint firstItem="5G3-kI-YQj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-5" id="7T3-Gh-Nee"/>
+                            <constraint firstItem="5G3-kI-YQj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-6" id="7T3-Gh-Nee"/>
                             <constraint firstItem="1G0-tK-U0H" firstAttribute="top" secondItem="1sX-bh-fwx" secondAttribute="bottom" constant="-100" id="CqR-bY-brr" userLabel="Bottom Text Field.top = Image Picker View.bottom - 60"/>
-                            <constraint firstItem="5G3-kI-YQj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="3" id="SQ8-yX-XkF"/>
                             <constraint firstItem="1G0-tK-U0H" firstAttribute="centerX" secondItem="1sX-bh-fwx" secondAttribute="centerX" id="WIq-nC-qfc"/>
                             <constraint firstItem="1sX-bh-fwx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Wdh-Ql-h8h"/>
                             <constraint firstItem="VfX-hK-M8x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="536" id="Wyc-aP-5ce"/>

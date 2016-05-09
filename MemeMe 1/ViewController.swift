@@ -20,7 +20,7 @@ UINavigationControllerDelegate {
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSForegroundColorAttributeName : UIColor.blackColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : 3.0
     ]
