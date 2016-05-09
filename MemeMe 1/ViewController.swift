@@ -41,6 +41,7 @@ UINavigationControllerDelegate {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         self.subscribeToKeyboardNotifications()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
     }
 
     // pops up camera roll to selecte photos
@@ -100,7 +101,7 @@ UINavigationControllerDelegate {
     
     // turns off notification
     func unsubscribeFromKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "keyboardWillHide:", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // Unsubscribe
