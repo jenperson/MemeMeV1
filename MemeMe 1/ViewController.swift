@@ -157,6 +157,15 @@ UINavigationControllerDelegate {
             imagePickerView.image!, memedImage: generateMemedImage())
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
+    
+    @IBAction func cancelAction(sender: AnyObject) {
+        imagePickerView.image = nil
+        topTextField.text?.removeAll()
+        bottomTextField.text?.removeAll()
+        viewDidLoad()
+    }
+    
+    
 }
 
 
