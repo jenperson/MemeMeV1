@@ -13,10 +13,10 @@ UINavigationControllerDelegate {
 
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var imagePickerView: UIImageView!
-    //@IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var activityBar: UIToolbar!
     
     let memeDelegate = MemeTextFieldDelegate()
     
@@ -116,8 +116,9 @@ UINavigationControllerDelegate {
     
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide toolbar and navbar
+        // Hide toolbar and navbar
         toolbar.hidden = true
+        activityBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -127,13 +128,14 @@ UINavigationControllerDelegate {
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar
+        // Show toolbar and navbar
         toolbar.hidden = false
+        activityBar.hidden = false
         
         return memedImage
     }
         
-    
+    // Use action button to share meme
     @IBAction func share(sender: AnyObject) {
         let memedImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
@@ -151,13 +153,14 @@ UINavigationControllerDelegate {
         presentViewController(activityViewController, animated: true, completion: nil)
     }
     
+    // create the meme
     func save() {
-        //Create the meme
         let meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, image:
             imagePickerView.image!, memedImage: generateMemedImage())
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
+    // clear the text and image when cancel is pressed
     @IBAction func cancelAction(sender: AnyObject) {
         imagePickerView.image = nil
         topTextField.text?.removeAll()
