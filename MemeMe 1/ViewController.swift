@@ -11,8 +11,10 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
 
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var imagePickerView: UIImageView!
-    @IBOutlet weak var cameraButton: UIButton!
+    //@IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
@@ -30,6 +32,7 @@ UINavigationControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Set behaviors of text boxes
         self.bottomTextField.delegate = memeDelegate
         self.topTextField.delegate = memeDelegate
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -40,9 +43,11 @@ UINavigationControllerDelegate {
         // only enables camera button if the camera is available for taking pictures
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
+        // notifies when keyboard appers and goes away
         self.subscribeToKeyboardNotifications()
 
     }
+    
 
     // pops up camera roll to selecte photos
     @IBAction func pickAnImage(sender: AnyObject) {
@@ -110,6 +115,39 @@ UINavigationControllerDelegate {
         self.unsubscribeFromKeyboardNotifications()
     }
 
+    struct Meme {
+        let text : String
+        let image: UIImage
+        let memedImage: UIImage
+        
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar
+        toolbar.hidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar
+        toolbar.hidden = false
+        
+        return memedImage
+    }
+        
+    
+    
+    func save() {
+        //Create the meme
+        let meme = Meme( text: topTextField.text!, image:
+            imagePickerView.image!, memedImage: generateMemedImage())
+    }
 }
 
 

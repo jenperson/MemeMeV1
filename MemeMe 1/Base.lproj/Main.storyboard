@@ -24,13 +24,13 @@
                                     <constraint firstAttribute="width" constant="600" id="aOL-4v-tKF"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1G0-tK-U0H">
-                                <rect key="frame" x="239" y="456" width="122.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1G0-tK-U0H">
+                                <rect key="frame" x="247" y="431" width="105.5" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5G3-kI-YQj">
-                                <rect key="frame" x="265.5" y="14" width="69" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5G3-kI-YQj">
+                                <rect key="frame" x="274" y="44" width="52" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
@@ -44,40 +44,38 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="69" style="plain" systemItem="fixedSpace" id="Z9s-yH-yhA"/>
-                                    <barButtonItem title="Item" style="plain" id="qIu-eG-Klw">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xdu-m4-3zC" userLabel="cameraButton">
-                                            <rect key="frame" x="244" y="-6" width="199" height="56"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <accessibility key="accessibilityConfiguration" label="cameraButton"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" title="Camera"/>
-                                            <connections>
-                                                <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NAa-Qy-61X"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="camera" id="qIu-eG-Klw"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExL-TN-IJE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="UT0-AX-F3n"/>
+                                    <barButtonItem width="482" style="plain" systemItem="fixedSpace" id="xsY-3p-dVr"/>
+                                    <barButtonItem systemItem="cancel" id="EUa-SZ-D2I"/>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1sX-bh-fwx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Vx-lJ-O0R"/>
-                            <constraint firstItem="5G3-kI-YQj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-6" id="7T3-Gh-Nee"/>
-                            <constraint firstItem="1G0-tK-U0H" firstAttribute="top" secondItem="1sX-bh-fwx" secondAttribute="bottom" constant="-100" id="CqR-bY-brr" userLabel="Bottom Text Field.top = Image Picker View.bottom - 60"/>
+                            <constraint firstItem="5G3-kI-YQj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="7T3-Gh-Nee"/>
+                            <constraint firstItem="1G0-tK-U0H" firstAttribute="top" secondItem="1sX-bh-fwx" secondAttribute="bottom" constant="-125" id="CqR-bY-brr" userLabel="Bottom Text Field.top = Image Picker View.bottom - 60"/>
                             <constraint firstItem="1G0-tK-U0H" firstAttribute="centerX" secondItem="1sX-bh-fwx" secondAttribute="centerX" id="WIq-nC-qfc"/>
                             <constraint firstItem="1sX-bh-fwx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Wdh-Ql-h8h"/>
-                            <constraint firstItem="VfX-hK-M8x" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="536" id="Wyc-aP-5ce"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VfX-hK-M8x" secondAttribute="bottom" id="c8y-c7-iES"/>
                             <constraint firstItem="1sX-bh-fwx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-22" id="dAJ-Rz-uIr"/>
                             <constraint firstItem="5G3-kI-YQj" firstAttribute="centerX" secondItem="1sX-bh-fwx" secondAttribute="centerX" id="fdP-fR-y7F"/>
+                            <constraint firstItem="VfX-hK-M8x" firstAttribute="top" secondItem="1sX-bh-fwx" secondAttribute="bottom" id="ps3-vm-oLV" userLabel="Toolbar.top = Image Picker View.bottom"/>
                             <constraint firstItem="VfX-hK-M8x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="xCg-y4-Kjo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VfX-hK-M8x" secondAttribute="trailing" constant="-20" id="xFC-sX-N5s"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="1G0-tK-U0H" id="fHn-Uy-kPs"/>
-                        <outlet property="cameraButton" destination="xdu-m4-3zC" id="c1n-rT-zgz"/>
+                        <outlet property="cameraButton" destination="qIu-eG-Klw" id="iEg-sd-yV0"/>
                         <outlet property="imagePickerView" destination="1sX-bh-fwx" id="iOn-7z-AkG"/>
+                        <outlet property="toolbar" destination="VfX-hK-M8x" id="jwY-Fe-NW2"/>
                         <outlet property="topTextField" destination="5G3-kI-YQj" id="dNw-pY-aod"/>
                     </connections>
                 </viewController>
