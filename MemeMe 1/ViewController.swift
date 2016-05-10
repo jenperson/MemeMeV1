@@ -48,7 +48,6 @@ UINavigationControllerDelegate {
 
     }
     
-
     // pops up camera roll to selecte photos
     @IBAction func pickAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
@@ -114,13 +113,6 @@ UINavigationControllerDelegate {
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
     }
-
-    struct Meme {
-        let text : String
-        let image: UIImage
-        let memedImage: UIImage
-        
-    }
     
     func generateMemedImage() -> UIImage {
         
@@ -142,11 +134,28 @@ UINavigationControllerDelegate {
     }
         
     
+    @IBAction func share(sender: AnyObject) {
+        let memedImage = generateMemedImage()
+        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = { (s: String?, ok: Bool, items: [AnyObject]?, err: NSError?) -> Void in
+            if ok {
+                self.save()
+                NSLog("Successfully saved image.")
+            } else if err != nil {
+                NSLog("Error: \(err)")
+            } else {
+                NSLog("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
+            }
+        }
+        
+        presentViewController(activityViewController, animated: true, completion: nil)
+    }
     
     func save() {
         //Create the meme
-        let meme = Meme( text: topTextField.text!, image:
+        let meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, image:
             imagePickerView.image!, memedImage: generateMemedImage())
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
 }
 

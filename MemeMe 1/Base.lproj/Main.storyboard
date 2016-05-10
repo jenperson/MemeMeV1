@@ -37,21 +37,26 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfX-hK-M8x">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="q0q-SW-TZs"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="R9d-qq-R3b"/>
                                     <barButtonItem title="Photo Library" id="r4J-dX-yhw">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="e7P-Px-GdJ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="69" style="plain" systemItem="fixedSpace" id="Z9s-yH-yhA"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nqu-Fd-slb"/>
                                     <barButtonItem style="plain" systemItem="camera" id="qIu-eG-Klw"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KMB-Qb-HRh"/>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExL-TN-IJE">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="-1" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="UT0-AX-F3n"/>
-                                    <barButtonItem width="482" style="plain" systemItem="fixedSpace" id="xsY-3p-dVr"/>
+                                    <barButtonItem systemItem="action" id="UT0-AX-F3n">
+                                        <connections>
+                                            <action selector="share:" destination="BYZ-38-t0r" id="h8d-Qg-J0q"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xgT-6u-NXE"/>
                                     <barButtonItem systemItem="cancel" id="EUa-SZ-D2I"/>
                                 </items>
                             </toolbar>
