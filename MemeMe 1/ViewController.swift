@@ -142,11 +142,11 @@ UINavigationControllerDelegate {
         activityViewController.completionWithItemsHandler = { (s: String?, ok: Bool, items: [AnyObject]?, err: NSError?) -> Void in
             if ok {
                 self.save()
-                NSLog("Successfully saved image.")
+                NSLog("Successfully saved meme image.")
             } else if err != nil {
                 NSLog("Error: \(err)")
             } else {
-                NSLog("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
+                NSLog("User clicked cancel")
             }
         }
         
